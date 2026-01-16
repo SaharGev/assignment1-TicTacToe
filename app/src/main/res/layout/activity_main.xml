@@ -5,15 +5,135 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@android:color/white"
+    >
 
     <TextView
+        android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Tic Tac Toe"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/turnText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player X turn"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/titleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Board-->
+    <FrameLayout
+        android:id="@+id/boardContainer"
+        android:layout_width="315dp"
+        android:layout_height="314dp"
+        android:background="@drawable/board_border"
+        android:padding="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/turnText"
+        app:layout_constraintVertical_bias="0.20"
+        app:layout_constraintWidth_percent="0.75">
+
+        <GridLayout
+            android:id="@+id/gridBoard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="3"
+            android:rowCount="3">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn00"
+                style="@style/BoardCellButton"
+                android:background="@drawable/board_cell" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn01"
+                style="@style/BoardCellButton"
+                android:background="@drawable/board_cell" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn02"
+                style="@style/BoardCellButton"
+                android:background="@drawable/board_cell" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn10"
+                style="@style/BoardCellButton"
+                android:background="@drawable/board_cell" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn11"
+                style="@style/BoardCellButton"
+                android:background="@drawable/board_cell" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn12"
+                style="@style/BoardCellButton"
+                android:background="@drawable/board_cell" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn20"
+                style="@style/BoardCellButton"
+                android:background="@drawable/board_cell" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn21"
+                style="@style/BoardCellButton"
+                android:background="@drawable/board_cell" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn22"
+                style="@style/BoardCellButton"
+                android:background="@drawable/board_cell" />
+
+        </GridLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/winnerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X wins!"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="12dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/boardContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/restartBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play Again"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintTop_toBottomOf="@+id/winnerText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
